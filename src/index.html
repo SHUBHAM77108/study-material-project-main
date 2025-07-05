@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en" class="!scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- icons font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <!-- Scroll Reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <!-- link tailwindcss -->
+    <link rel="stylesheet" href="output.css">
+    <!-- Swiper Link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+
+    .blinking-border {
+    animation: blinkBorder 1s infinite;
+    }
+
+    @keyframes blinkBorder {
+    0% {
+      border-color: red;
+    }
+    50% {
+      border-color: transparent;
+    }
+    100% {
+      border-color: red;
+    }
+    }
+    </style>
+
+<body>
+    <!-- Navbar -->
+    <nav class="p-3 flex bg-white justify-between items-center fixed top-0 left-0 right-0 z-20 shadow-md">
+        <a href="#" id="brand" class="flex gap-2 items-center flex-1">
+            <img class="object-cover max-w-12 max-h-12" src="./assets/logo.png" alt="Logo">
+            <span class  ="font-bold text-primary font-display text-3xl">A<span class="text-logoColor text-2xl font-bold">cademix</span></span>
+        </a>
+        <div id="nav-menu" class="hidden lg:flex gap-12">
+            <a href="#hero" class="font-medium hover:text-primary">Home</a>
+            <a href="#notes" class="font-medium hover:text-primary">Notes</a>
+            <a href="#videos" class="font-medium hover:text-primary">Videos</a>
+            <a href="#PreviousPapers" class="font-medium hover:text-primary">Previous Year papers</a>
+            <a href="#Buy materials" class="font-medium hover:text-primary">Buy Materials</a>
+        </div>
+        <div class="hidden lg:flex flex-1 justify-end">
+            <div class="flex gap-2 items-center border border-gray-400 px-4 pt-2 pb-1 rounded-lg">
+                <a href="mailto:rekandlal11@gmail.com" target="_blank">
+                    <button class="w-[32px] h-[32px] opacity-60 hover:opacity-100 ease-in">
+                    <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 47.5 47.5" viewBox="0 0 47.5 47.5" id="Email" class="w-full h-full"><defs><clipPath id="a"><path d="M0 38h38V0H0v38Z" fill="#000000" class="color000000 svgShape"></path></clipPath></defs><g clip-path="url(#a)" transform="matrix(1.25 0 0 -1.25 0 47.5)" fill="#000000" class="color000000 svgShape"><path fill="#ccddda" d="M0 0a4 4 0 0 0-4-4h-28a4 4 0 0 0-4 4v18a4 4 0 0 0 4 4h28a4 4 0 0 0 4-4V0Z" transform="translate(37 10)" class="colorccd6dd svgShape"></path><path fill="#368071" d="m0 0-11.313-11.313c-.027-.028-.037-.063-.06-.091a3.987 3.987 0 0 1 1.384-1.384c.029.023.063.033.09.059L1.415-1.414A1 1 0 0 1 0 0" transform="translate(12.95 19.364)" class="color99aab5 svgShape"></path><path fill="#368071" d="M0 0c-.021.028-.033.063-.06.09l-11.312 11.314a1 1 0 1 1-1.415-1.414L-1.474-1.324c.027-.027.062-.037.09-.06A3.97 3.97 0 0 1 0 0" transform="translate(36.423 7.96)" class="color99aab5 svgShape"></path><path fill="#368071" d="M0 0h-28a4 4 0 0 1-4-4v-1.03l14.528-14.495a4.88 4.88 0 0 1 6.884 0L4-5.009V-4a4 4 0 0 1-4 4" transform="translate(33 32)" class="color99aab5 svgShape"></path><path fill="#e1edeb" d="M0 0h-28a3.992 3.992 0 0 1-3.595-2.275l14.766-14.767a4 4 0 0 1 5.657 0L3.595-2.275A3.991 3.991 0 0 1 0 0" transform="translate(33 32)" class="colore1e8ed svgShape"></path></g></svg>
+                    </button>
+                </a>
+                <a href="https://github.com/rekandlal" target="_blank">
+                    <button class="w-8 h-8">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792" id="Github"><path d="M522 1352q-8 9-20-3-13-11-4-19 8-9 20 3 12 11 4 19zm-42-61q9 12 0 19-8 6-17-7t0-18q9-7 17 6zm-61-60q-5 7-13 2-10-5-7-12 3-5 13-2 10 5 7 12zm31 34q-6 7-16-3-9-11-2-16 6-6 16 3 9 11 2 16zm129 112q-4 12-19 6-17-4-13-15t19-7q16 5 13 16zm63 5q0 11-16 11-17 2-17-11 0-11 16-11 17-2 17 11zm58-10q2 10-14 14t-18-8 14-15q16-2 18 9zm964-956v960q0 119-84.5 203.5T1376 1664h-224q-16 0-24.5-1t-19.5-5-16-14.5-5-27.5v-239q0-97-52-142 57-6 102.5-18t94-39 81-66.5 53-105T1386 856q0-121-79-206 37-91-8-204-28-9-81 11t-92 44l-38 24q-93-26-192-26t-192 26q-16-11-42.5-27T578 459.5 492 446q-44 113-7 204-79 85-79 206 0 85 20.5 150t52.5 105 80.5 67 94 39 102.5 18q-40 36-49 103-21 10-45 15t-57 5-65.5-21.5T484 1274q-19-32-48.5-52t-49.5-24l-20-3q-21 0-29 4.5t-5 11.5 9 14 13 12l7 5q22 10 43.5 38t31.5 51l10 23q13 38 44 61.5t67 30 69.5 7 55.5-3.5l23-4q0 38 .5 103t.5 68q0 22-11 33.5t-22 13-33 1.5H416q-119 0-203.5-84.5T128 1376V416q0-119 84.5-203.5T416 128h960q119 0 203.5 84.5T1664 416z" fill="#368071" class="color000000 svgShape"></path></svg>
+                    </button>
+                </a>
+                <a href="https://www.linkedin.com/in/abhishekh-vishwakarma-13aa1b297" target="_blank">
+                    <button class="w-[27px] h-[27px]">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" id="Linkedin"><g fill="none" fill-rule="evenodd"><g fill="#000000" class="color000000 svgShape"><rect width="72" height="72" fill="#368071" rx="4" class="color117eb8 svgShape"></rect><path fill="#ffffff" d="M13.139 27.848h9.623V58.81h-9.623V27.848zm4.813-15.391c3.077 0 5.577 2.5 5.577 5.577 0 3.08-2.5 5.581-5.577 5.581a5.58 5.58 0 1 1 0-11.158zm10.846 15.39h9.23v4.231h.128c1.285-2.434 4.424-5 9.105-5 9.744 0 11.544 6.413 11.544 14.75V58.81h-9.617V43.753c0-3.59-.066-8.209-5-8.209-5.007 0-5.776 3.911-5.776 7.95V58.81h-9.615V27.848z" class="colorffffff svgShape"></path></g></g></svg>
+                    </button>
+                </a>
+                
+            </div>
+        </div>
+
+        <button class="p-2 lg:hidden" id="menuButton">
+            <i class="fa-solid fa-bars text-gray-600 text-2xl"></i>
+        </button>
+    
+        <div id="nav-dialog" class="hidden fixed z-10 lg:hidden bg-white inset-0 p-3">
+            <div id="nav-bar" class="flex justify-between">
+                <a href="#" id="brand" class="flex gap-2 items-center">
+                    <img class="object-cover max-w-12 max-h-12" src="./assets/logo.png" alt="Logo">
+                    <span class="font-bold text-primary font-display text-3xl">A<span class="text-logoColor text-2xl font-bold">cademix</span></span>
+                </a>
+                <button class="p-2 lg:hidden" id="closeButton">
+                    <i class="fa-solid fa-xmark text-gray-600 text-2xl"></i>
+                </button>
+            </div>
+            <div class="mt-6">
+                <a href="#heros" class="font-medium m-3 p-3 hover:bg-gray-200 block rounded-lg">Home</a>
+                <a href="#notes" class="font-medium m-3 p-3 hover:bg-gray-200 block rounded-lg">Notes</a>
+                <a href="#videos" class="font-medium m-3 p-3 hover:bg-gray-200 block rounded-lg">Videos</a>
+                <a href="#PreviousPapers" class="font-medium m-3 p-3 hover:bg-gray-200 block rounded-lg">Previous Year papers</a>
+                <a href="#Buy materials" class="font-medium m-3 p-3 hover:bg-gray-200 block rounded-lg">Buy Materials</a>
+            </div>
+            <div class="h-[1px] bg-gray-300"></div>
+                <div class="flex w-fit gap-2 items-center mt-6 px-6 py-4 border border-gray-400 rounded-lg">
+                    <!-- Contact buttons -->
+                    <p class="text-center text-lg font-medium">Contact us:</p>
+            <a href="mailto:rekandlal11@gmail.com" target="_blank">
+                <button class="w-[32px] h-[30px] items-center flex opacity-60 hover:opacity-100 ease-in p-0">
+                <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 47.5 47.5" viewBox="0 0 47.5 47.5" id="Email" class="w-full h-full"><defs><clipPath id="a"><path d="M0 38h38V0H0v38Z" fill="#000000" class="color000000 svgShape"></path></clipPath></defs><g clip-path="url(#a)" transform="matrix(1.25 0 0 -1.25 0 47.5)" fill="#000000" class="color000000 svgShape"><path fill="#ccddda" d="M0 0a4 4 0 0 0-4-4h-28a4 4 0 0 0-4 4v18a4 4 0 0 0 4 4h28a4 4 0 0 0 4-4V0Z" transform="translate(37 10)" class="colorccd6dd svgShape"></path><path fill="#368071" d="m0 0-11.313-11.313c-.027-.028-.037-.063-.06-.091a3.987 3.987 0 0 1 1.384-1.384c.029.023.063.033.09.059L1.415-1.414A1 1 0 0 1 0 0" transform="translate(12.95 19.364)" class="color99aab5 svgShape"></path><path fill="#368071" d="M0 0c-.021.028-.033.063-.06.09l-11.312 11.314a1 1 0 1 1-1.415-1.414L-1.474-1.324c.027-.027.062-.037.09-.06A3.97 3.97 0 0 1 0 0" transform="translate(36.423 7.96)" class="color99aab5 svgShape"></path><path fill="#368071" d="M0 0h-28a4 4 0 0 1-4-4v-1.03l14.528-14.495a4.88 4.88 0 0 1 6.884 0L4-5.009V-4a4 4 0 0 1-4 4" transform="translate(33 32)" class="color99aab5 svgShape"></path><path fill="#e1edeb" d="M0 0h-28a3.992 3.992 0 0 1-3.595-2.275l14.766-14.767a4 4 0 0 1 5.657 0L3.595-2.275A3.991 3.991 0 0 1 0 0" transform="translate(33 32)" class="colore1e8ed svgShape"></path></g></svg>
+                </button>
+            </a>
+            <a href="https://github.com/rekandlal" target="_blank">
+                <button class="w-8 h-8 items-center flex opacity-60 hover:opacity-100 ease-in p-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792" id="Github"><path d="M522 1352q-8 9-20-3-13-11-4-19 8-9 20 3 12 11 4 19zm-42-61q9 12 0 19-8 6-17-7t0-18q9-7 17 6zm-61-60q-5 7-13 2-10-5-7-12 3-5 13-2 10 5 7 12zm31 34q-6 7-16-3-9-11-2-16 6-6 16 3 9 11 2 16zm129 112q-4 12-19 6-17-4-13-15t19-7q16 5 13 16zm63 5q0 11-16 11-17 2-17-11 0-11 16-11 17-2 17 11zm58-10q2 10-14 14t-18-8 14-15q16-2 18 9zm964-956v960q0 119-84.5 203.5T1376 1664h-224q-16 0-24.5-1t-19.5-5-16-14.5-5-27.5v-239q0-97-52-142 57-6 102.5-18t94-39 81-66.5 53-105T1386 856q0-121-79-206 37-91-8-204-28-9-81 11t-92 44l-38 24q-93-26-192-26t-192 26q-16-11-42.5-27T578 459.5 492 446q-44 113-7 204-79 85-79 206 0 85 20.5 150t52.5 105 80.5 67 94 39 102.5 18q-40 36-49 103-21 10-45 15t-57 5-65.5-21.5T484 1274q-19-32-48.5-52t-49.5-24l-20-3q-21 0-29 4.5t-5 11.5 9 14 13 12l7 5q22 10 43.5 38t31.5 51l10 23q13 38 44 61.5t67 30 69.5 7 55.5-3.5l23-4q0 38 .5 103t.5 68q0 22-11 33.5t-22 13-33 1.5H416q-119 0-203.5-84.5T128 1376V416q0-119 84.5-203.5T416 128h960q119 0 203.5 84.5T1664 416z" fill="#368071" class="color000000 svgShape"></path></svg>
+                </button>
+            </a>
+            <a href="https://www.linkedin.com/in/abhishekh-vishwakarma-13aa1b297" target="_blank">
+                <button class="w-[27px] h-[27px] items-center flex opacity-60 hover:opacity-100 ease-in p-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" id="Linkedin"><g fill="none" fill-rule="evenodd"><g fill="#000000" class="color000000 svgShape"><rect width="72" height="72" fill="#368071" rx="4" class="color117eb8 svgShape"></rect><path fill="#ffffff" d="M13.139 27.848h9.623V58.81h-9.623V27.848zm4.813-15.391c3.077 0 5.577 2.5 5.577 5.577 0 3.08-2.5 5.581-5.577 5.581a5.58 5.58 0 1 1 0-11.158zm10.846 15.39h9.23v4.231h.128c1.285-2.434 4.424-5 9.105-5 9.744 0 11.544 6.413 11.544 14.75V58.81h-9.617V43.753c0-3.59-.066-8.209-5-8.209-5.007 0-5.776 3.911-5.776 7.95V58.81h-9.615V27.848z" class="colorffffff svgShape"></path></g></g></svg>
+                </button>
+            </a>
+                </div>
+        </div>
+    </nav>
+
+    <!-- page-scroll-up -->
+    <a href="#">
+        <div class="page-scroll-up cursor-pointer flex flex-shrink-0 overflow-hidden group fixed right-5 bottom-8 w-[12vw] h-[12vw] md:w-[6vw] md:h-[6vw] min-w-[65px] min-h-[65px] z-20 rounded-full border">
+            <div class="gradient-hover-outer h-full w-full rounded-full">
+                <div class="gradient-hover-inner flex flex-shrink-0 items-center justify-center rounded-full h-full w-full">
+                    <i class="fa-solid fa-arrow-up fa-2x text-primary bg-transparent"></i>
+                </div>
+            </div>
+        </div>
+    </a>
+    
+    <!-- Main -->
+    <main id="heros" class="mt-16">
+        <!-- Hero section -->
+        <div id="hero" class="md:min-h-screen pb-24 pt-10 sm:pt-0 md:pb-0  bg-gradient-to-b from-green-50 via-orange-50 to-transparent">
+            <div id="hero-container" class="max-w-4xl mx-auto px-6 pt-6 md:pb-16 flex flex-col sm:items-center sm:text-center sm:pt-12 sm:max-w-3xl">
+                <div id="hero-features" class="hidden sm:flex gap-8 mt-10">
+                    <div class="flex justify-center gap-2 items-center text-gray-500">
+                        <i class="fa-solid fa-book text-sm"></i>
+                        <p>Notes</p>
+                    </div>
+                    <div class="flex justify-center gap-2 items-center text-gray-500">
+                        <i class="fa-solid fa-video"></i>
+                        <p>videos</p>
+                    </div>
+                    <div class="flex justify-center gap-2 items-center text-gray-500">
+                        <i class="fa-regular fa-newspaper"></i>
+                    <p>PYQ</p>
+                    </div>
+                </div>
+                <h1 class="hero-title text-4xl font-semibold leading-snug mt-4 sm:text-6xl">Master Exams with Expert Tips and Materials</h1>
+                <p class="text-xl mt-4 sm:text-2xl sm:mt-8 text-gray-800">
+                    Equip yourself with the tools and knowledge to excel in your exams. Our expert advice and comprehensive study materials make mastering even the toughest subjects achievable.
+                </p>
+                
+                <div class="container mx-auto p-4 border-2 border-gray-400 rounded-md mt-8 blinking-border ">
+                    <p style="color: red; font-weight: bold; padding-bottom: 2%; text-align: center;">NOTICE</p>
+                    <p class="text-lg mt-2 text-gray-800" style="background-color: rgb(250, 250, 13);">
+                        Kindly note that the notes are available for download after a successful payment. Once the payment is completed, the notes will be automatically downloaded to your system. We request you to avoid clicking the back button during this process to ensure a smooth experience. Thank you for your understanding!
+                    </p>
+                </div>
+
+                
+                
+                <div id="buttons-container" class="mt-12 flex gap-4 flex-col sm:flex-row">
+                    <a href="#notes">
+                        <button class="overflow-hidden w-32 p-2 h-12 bg-black text-white border-none rounded-md text-xl font-bold cursor-pointer relative z-10 group">View note<span class="absolute w-36 h-32 -top-8 -left-2 bg-white rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-left"></span><span class="absolute w-36 h-32 -top-8 -left-2 bg-[#4fa594] rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-left"></span><span class="absolute w-36 h-32 -top-8 -left-2 bg-[#227968] rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-1000 duration-500 origin-left"></span><span class="group-hover:opacity-100 group-hover:duration-1000 duration-100 opacity-0 absolute top-2.5 left-6 z-10">Explore!</span></button>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notes -->
+        <section id="notes">
+            <div class="notes_container py-20 sm:py-20 px-1 sm:px-20 md:px-10">
+                <h2 class="main-title text-4xl md:text-5xl pl-5 md:pl-0 sm:font-semibold">Notes</h2>
+                <div class="flex flex-col md:flex-row px-8 md:px-0 md:flex-wrap justify-center gap-4 md:gap-7 sm:gap-12 mt-10 md:mt-20">
+
+                    <div class="overflow-hidden xl:w-[22vw] lg:w-[24vw] md:w-[34vw] group card-containers rounded-2xl shadow-md">
+                        <div class="rounded-2xl h-full gradient-hover-outer">
+                            <div class="rounded-2xl h-full gradient-hover-inner flex flex-col">
+                                <div class="w-full">
+                                    <img src="./assets/asset 57.svg" alt="" class="rounded-t-2xl">
+                                </div>
+                                <div class="flex relative h-full w-full flex-col justify-evenly items-center gap-6 p-6">
+                                    <div class="flex items-center w-full justify-self-auto gap-4">
+                                        <div class="w-12 h-12 bg-blue-200 flex-shrink-0 flex items-center justify-center rounded-full">
+                                            <i class="fa-solid fa-code text-indigo-800"></i>
+                                        </div>
+                                        <h3 class="text-2xl font-semibold">Mathematic - 1</h3>
+                                    </div>
+                                    <div class="flex w-full justify-evenly gap-4">
+                                    <a href="#">  <button class="overflow-hidden w-32 p-2 py-3 h-12 bg-black text-white border-none rounded-md font-bold cursor-pointer relative text-xl z-10 group flex items-center justify-center">
+                                        Buy Notes
+                                        <span class="absolute w-36 h-32 -top-8 -left-2 bg-white rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-left"></span>
+                                        <span class="absolute w-36 h-32 -top-8 -left-2 bg-[#4fa594] rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-left"></span>
+                                        <span class="absolute w-36 h-32 -top-8 -left-2 bg-[#227968] rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-1000 duration-500 origin-left"></span>
+                                        <span class="group-hover:opacity-100 group-hover:duration-1000 duration-100 opacity-0 text-center absolute inset-0 flex justify-center items-center z-10">Buy Notes</span>
+                                    </button></a>
+                                        
+                                        <button class="transition flex items-center duration-300 show-hidden-menu underline">More Modules</button>
+                                    </div>
+                                    <div class="w-[90%] h-[80%] text-black rounded-2xl p-4 flex justify-center flex-wrap absolute z-10 overflow-hidden after:duration-500 before:duration-500 duration-500 hover:after:duration-500 hover:after:translate-x-16 hover:before:translate-y-8 hover:before:-translate-x-36 hover:duration-500 after:absolute after:w-14 after:h-14 after:bg-green-700 after:rounded-full after:blur-xl after:bottom-16 after:right-16 before:absolute before:bg-sky-400 before:rounded-full before:blur-xl before:top-10 before:right-16 before:w-14 before:h-14 items-center bg-[#fdfaed] shadow-md hidden-menu">
+                                        <button class="absolute top-2 right-3 close-hidden-menu">
+                                            <i class="fa-solid fa-xmark text-gray-600 text-xl"></i>
+                                        </button>
+                                        <a href=https://rzp.io/rzp/vng4VqR class="w-fit p-2"><p>Module 1</p></a>
+                                        <a href=https://rzp.io/rzp/xkO4jsh class="w-fit p-2"><p>Module 2</p></a>
+                                        <a href=https://rzp.io/rzp/6wxrYR7 class="w-fit p-2"><p>Module 3</p></a>
+                                        <a href=https://rzp.io/rzp/u7VZgcA class="w-fit p-2"><p>Module 4</p></a>
+                                        <a href=https://rzp.io/rzp/IPUeaVn class="w-fit p-2"><p>Module 5</p></a>
+                                        <a href=https://rzp.io/rzp/RTONWSs class="w-fit p-2"><p>Module 6</p></a>
+ 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="overflow-hidden xl:w-[22vw] lg:w-[24vw] md:w-[34vw] group card-containers rounded-2xl shadow-md">
+                        <div class="rounded-2xl h-full gradient-hover-outer">
+                            <div class="rounded-2xl h-full gradient-hover-inner flex flex-col">
+                                <div class="w-full">
+                                    <img src="./assets/asset 57.svg" alt="" class="rounded-t-2xl">
+                                </div>
+                                <div class="flex relative h-full w-full flex-col justify-evenly items-center gap-6 p-6">
+                                    <div class="flex items-center w-full justify-self-auto gap-4">
+                                        <div class="w-12 h-12 bg-blue-200 flex-shrink-0 flex items-center justify-center rounded-full">
+                                            <i class="fa-solid fa-code text-indigo-800"></i>
+                                        </div>
+                                        <h3 class="text-2xl font-semibold">Chemistry</h3>
+                                    </div>
+                                    <div class="flex w-full justify-evenly gap-4">
+                                        <a href=# ><button class="overflow-hidden w-32 p-2 py-3 h-12 bg-black text-white border-none rounded-md font-bold cursor-pointer relative text-xl z-10 group flex items-center justify-center">
+                                            Buy Notes
+                                            <span class="absolute w-36 h-32 -top-8 -left-2 bg-white rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-left"></span>
+                                            <span class="absolute w-36 h-32 -top-8 -left-2 bg-[#4fa594] rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-left"></span>
+                                            <span class="absolute w-36 h-32 -top-8 -left-2 bg-[#227968] rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-1000 duration-500 origin-left"></span>
+                                            <span class="group-hover:opacity-100 group-hover:duration-1000 duration-100 opacity-0 text-center absolute inset-0 flex justify-center items-center z-10">Buy Notes</span>
+                                        </button></a>
+                                        
+                                        <button class="transition flex items-center duration-300 show-hidden-menu underline">More Modules</button>
+                                    </div>
+                                    <div class="w-[90%] h-[80%] text-black rounded-2xl p-4 flex justify-center flex-wrap absolute z-10 overflow-hidden after:duration-500 before:duration-500 duration-500 hover:after:duration-500 hover:after:translate-x-16 hover:before:translate-y-8 hover:before:-translate-x-36 hover:duration-500 after:absolute after:w-14 after:h-14 after:bg-green-700 after:rounded-full after:blur-xl after:bottom-16 after:right-16 before:absolute before:bg-sky-400 before:rounded-full before:blur-xl before:top-10 before:right-16 before:w-14 before:h-14 items-center bg-[#fdfaed] shadow-md hidden-menu">
+                                        <button class="absolute top-2 right-3 close-hidden-menu">
+                                            <i class="fa-solid fa-xmark text-gray-600 text-lg"></i>
+                                        </button>
+                                        <a href=https://rzp.io/rzp/7UtNjlMi class="w-fit p-2"><p>Module 1</p></a>
+                                        <a href=https://rzp.io/rzp/c1Q4UBGj class="w-fit p-2"><p>Module 2</p></a>
+                                        <a href=https://rzp.io/rzp/9wOage1 class="w-fit p-2"><p>Module 3</p></a>
+                                        <a href=https://rzp.io/rzp/aYmFfhYV class="w-fit p-2"><p>Module 4</p></a>
+                                        <a href=https://rzp.io/rzp/FgWA6FV class="w-fit p-2"><p>Module 5</p></a>
+                                        <a href=https://rzp.io/rzp/ils2u8EX class="w-fit p-2"><p>Module 6</p></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="overflow-hidden xl:w-[22vw] lg:w-[24vw] md:w-[34vw] group card-containers rounded-2xl shadow-md">
+                        <div class="rounded-2xl h-full gradient-hover-outer">
+                            <div class="rounded-2xl h-full gradient-hover-inner flex flex-col">
+                                <div class="w-full">
+                                    <img src="./assets/asset 57.svg" alt="" class="rounded-t-2xl">
+                                </div>
+                                <div class="flex relative h-full w-full flex-col justify-evenly items-center gap-6 p-6">
+                                    <div class="flex items-center w-full justify-self-auto gap-4">
+                                        <div class="w-12 h-12 bg-blue-200 flex-shrink-0 flex items-center justify-center rounded-full">
+                                            <i class="fa-solid fa-code text-indigo-800"></i>
+                                        </div>
+                                        <h3 class="text-2xl font-semibold">Engineering Mechanics</h3>
+                                    </div>
+                                    <div class="flex w-full justify-evenly gap-4">
+                                        <a href=#><button class="overflow-hidden w-32 p-2 py-3 h-12 bg-black text-white border-none rounded-md font-bold cursor-pointer relative text-xl z-10 group flex items-center justify-center">
+                                            Buy Notes
+                                            <span class="absolute w-36 h-32 -top-8 -left-2 bg-white rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-left"></span>
+                                            <span class="absolute w-36 h-32 -top-8 -left-2 bg-[#4fa594] rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-left"></span>
+                                            <span class="absolute w-36 h-32 -top-8 -left-2 bg-[#227968] rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-1000 duration-500 origin-left"></span>
+                                            <span class="group-hover:opacity-100 group-hover:duration-1000 duration-100 opacity-0 text-center absolute inset-0 flex justify-center items-center z-10">Buy Notes</span>
+                                        </button></a>
+                                        
+                                        <button class="transition flex items-center duration-300 show-hidden-menu underline">More Modules</button>
+                                    </div>
+                                    <div class="w-[90%] h-[80%] text-black rounded-2xl p-4 flex justify-center flex-wrap absolute z-10 overflow-hidden after:duration-500 before:duration-500 duration-500 hover:after:duration-500 hover:after:translate-x-16 hover:before:translate-y-8 hover:before:-translate-x-36 hover:duration-500 after:absolute after:w-14 after:h-14 after:bg-green-700 after:rounded-full after:blur-xl after:bottom-16 after:right-16 before:absolute before:bg-sky-400 before:rounded-full before:blur-xl before:top-10 before:right-16 before:w-14 before:h-14 items-center bg-[#fdfaed] shadow-md hidden-menu">
+                                        <button class="absolute top-2 right-3 close-hidden-menu">
+                                            <i class="fa-solid fa-xmark text-gray-600 text-lg"></i>
+                                        </button>
+                                        <a href=https://rzp.io/rzp/JwLZmYQA class="w-fit p-2"><p>Module 1</p></a>
+                                        <a href=https://rzp.io/rzp/LmS5ygDA class="w-fit p-2"><p>Module 2</p></a>
+                                        <a href=https://rzp.io/rzp/ra01babw class="w-fit p-2"><p>Module 3</p></a>
+                                        <a href=https://rzp.io/rzp/av60hvWl class="w-fit p-2"><p>Module 4</p></a>
+                                        <a href=https://rzp.io/rzp/0R62xDB class="w-fit p-2"><p>Module 5</p></a>
+                                        <a href=https://rzp.io/rzp/SYfOyfq class="w-fit p-2"><p>Module 6</p></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="overflow-hidden xl:w-[22vw] lg:w-[24vw] md:w-[34vw] group card-containers rounded-2xl shadow-md">
+                        <div class="rounded-2xl h-full gradient-hover-outer">
+                            <div class="rounded-2xl h-full gradient-hover-inner flex flex-col">
+                                <div class="w-full">
+                                    <img src="./assets/asset 57.svg" alt="" class="rounded-t-2xl">
+                                </div>
+                                <div class="flex relative h-full w-full flex-col justify-evenly items-center gap-6 p-6">
+                                    <div class="flex items-center w-full justify-self-auto gap-4">
+                                        <div class="w-12 h-12 bg-blue-200 flex-shrink-0 flex items-center justify-center rounded-full">
+                                            <i class="fa-solid fa-code text-indigo-800"></i>
+                                        </div>
+                                        <h3 class="text-2xl font-semibold">Programming For Problem Solving</h3>
+                                    </div>
+                                    <div class="flex w-full justify-evenly gap-4">
+                                       <a href=# ><button class="overflow-hidden w-32 p-2 py-3 h-12 bg-black text-white border-none rounded-md font-bold cursor-pointer relative text-xl z-10 group flex items-center justify-center">
+                                        Buy Notes
+                                            <span class="absolute w-36 h-32 -top-8 -left-2 bg-white rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-left"></span>
+                                            <span class="absolute w-36 h-32 -top-8 -left-2 bg-[#4fa594] rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-left"></span>
+                                            <span class="absolute w-36 h-32 -top-8 -left-2 bg-[#227968] rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-1000 duration-500 origin-left"></span>
+                                            <span class="group-hover:opacity-100 group-hover:duration-1000 duration-100 opacity-0 text-center absolute inset-0 flex justify-center items-center z-10">Buy Notes</span>
+                                        </button></a>
+                                        
+                                        <button class="transition flex items-center duration-300 show-hidden-menu underline">More Modules</button>
+                                    </div>
+                                    <div class="w-[90%] h-[80%] text-black rounded-2xl p-4 flex justify-center flex-wrap absolute z-10 overflow-hidden after:duration-500 before:duration-500 duration-500 hover:after:duration-500 hover:after:translate-x-16 hover:before:translate-y-8 hover:before:-translate-x-36 hover:duration-500 after:absolute after:w-14 after:h-14 after:bg-green-700 after:rounded-full after:blur-xl after:bottom-16 after:right-16 before:absolute before:bg-sky-400 before:rounded-full before:blur-xl before:top-10 before:right-16 before:w-14 before:h-14 items-center bg-[#fdfaed] shadow-md hidden-menu">
+                                        <button class="absolute top-2 right-3 close-hidden-menu">
+                                            <i class="fa-solid fa-xmark text-gray-600 text-lg"></i>
+                                        </button> 
+                                        <a href=https://rzp.io/rzp/oYvTKIh class="w-fit p-2"><p>Module 1</p></a>
+                                        <a href=https://rzp.io/rzp/8MwbY2D class="w-fit p-2"><p>Module 2</p></a>
+                                        <a href=https://rzp.io/rzp/mNQJG5QQ class="w-fit p-2"><p>Module 3</p></a>
+                                        <a href=https://rzp.io/rzp/8RUwFNV class="w-fit p-2"><p>Module 4</p></a>
+                                        <a href=https://rzp.io/rzp/liftrksH class="w-fit p-2"><p>Module 5</p></a>
+                                        <a href=https://rzp.io/rzp/LcsxVfC class="w-fit p-2"><p>Module 6</p></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="overflow-hidden xl:w-[22vw] lg:w-[24vw] md:w-[34vw] group card-containers rounded-2xl shadow-md">
+                        <div class="rounded-2xl h-full gradient-hover-outer">
+                            <div class="rounded-2xl h-full gradient-hover-inner flex flex-col">
+                                <div class="w-full">
+                                    <img src="./assets/asset 57.svg" alt="" class="rounded-t-2xl">
+                                </div>
+                                <div class="flex relative h-full w-full flex-col justify-evenly items-center gap-6 p-6">
+                                    <div class="flex items-center w-full justify-self-auto gap-4">
+                                        <div class="w-12 h-12 bg-blue-200 flex-shrink-0 flex items-center justify-center rounded-full">
+                                            <i class="fa-solid fa-code text-indigo-800"></i>
+                                        </div>
+                                        <h3 class="text-2xl font-semibold">Mathematic-2</h3>
+                                    </div>
+                                    <div class="flex w-full justify-evenly gap-4">
+                                       <a href= # > <button class="overflow-hidden w-32 p-2 py-3 h-12 bg-black text-white border-none rounded-md font-bold cursor-pointer relative text-xl z-10 group flex items-center justify-center">
+                                        Buy Notes
+                                        <span class="absolute w-36 h-32 -top-8 -left-2 bg-white rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-left"></span>
+                                        <span class="absolute w-36 h-32 -top-8 -left-2 bg-[#4fa594] rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-left"></span>
+                                        <span class="absolute w-36 h-32 -top-8 -left-2 bg-[#227968] rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-1000 duration-500 origin-left"></span>
+                                        <span class="group-hover:opacity-100 group-hover:duration-1000 duration-100 opacity-0 text-center absolute inset-0 flex justify-center items-center z-10">Buy Notes</span>
+                                    </button>
+                                    </a>
+                                        <button class="transition flex items-center duration-300 show-hidden-menu underline">More Modules</button>
+                                    </div>
+                                    <div class="w-[90%] h-[80%] text-black rounded-2xl p-4 flex justify-center flex-wrap absolute z-10 overflow-hidden after:duration-500 before:duration-500 duration-500 hover:after:duration-500 hover:after:translate-x-16 hover:before:translate-y-8 hover:before:-translate-x-36 hover:duration-500 after:absolute after:w-14 after:h-14 after:bg-green-700 after:rounded-full after:blur-xl after:bottom-16 after:right-16 before:absolute before:bg-sky-400 before:rounded-full before:blur-xl before:top-10 before:right-16 before:w-14 before:h-14 items-center bg-[#fdfaed] shadow-md hidden-menu">
+                                        <button class="absolute top-2 right-3 close-hidden-menu">
+                                            <i class="fa-solid fa-xmark text-gray-600 text-lg"></i>
+                                        </button>
+                                        <a href=https://rzp.io/rzp/4p1nQL6 class="w-fit p-2"><p>Module 1</p></a>
+                                        <a href=https://rzp.io/rzp/PCPh9Cv class="w-fit p-2"><p>Module 2</p></a>
+                                        <a href=https://rzp.io/rzp/1zG5UYDy class="w-fit p-2"><p>Module 3</p></a>
+                                        <a href=https://rzp.io/rzp/cxUHZyJ class="w-fit p-2"><p>Module 4</p></a>
+                                        <a href=https://rzp.io/rzp/J1Y2mOI class="w-fit p-2"><p>Module 5</p></a>
+                                        <a href=https://rzp.io/rzp/AUdIgWb class="w-fit p-2"><p>Module 6</p></a>
+                                      
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="overflow-hidden xl:w-[22vw] lg:w-[24vw] md:w-[34vw] group card-containers rounded-2xl shadow-md">
+                        <div class="rounded-2xl h-full gradient-hover-outer">
+                            <div class="rounded-2xl h-full gradient-hover-inner flex flex-col">
+                                <div class="w-full">
+                                    <img src="./assets/asset 57.svg" alt="" class="rounded-t-2xl">
+                                </div>
+                                <div class="flex relative h-full w-full flex-col justify-evenly items-center gap-6 p-6">
+                                    <div class="flex items-center w-full justify-self-auto gap-4">
+                                        <div class="w-12 h-12 bg-blue-200 flex-shrink-0 flex items-center justify-center rounded-full">
+                                            <i class="fa-solid fa-code text-indigo-800"></i>
+                                        </div>
+                                        <h3 class="text-2xl font-semibold">Physics</h3>
+                                    </div>
+                                    <div class="flex w-full justify-evenly gap-4">
+                                      <a href= # ><button class="overflow-hidden w-32 p-2 py-3 h-12 bg-black text-white border-none rounded-md font-bold cursor-pointer relative text-xl z-10 group flex items-center justify-center">
+                                        Buy Notes
+                                        <span class="absolute w-36 h-32 -top-8 -left-2 bg-white rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-left"></span>
+                                        <span class="absolute w-36 h-32 -top-8 -left-2 bg-[#4fa594] rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-left"></span>
+                                        <span class="absolute w-36 h-32 -top-8 -left-2 bg-[#227968] rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-1000 duration-500 origin-left"></span>
+                                        <span class="group-hover:opacity-100 group-hover:duration-1000 duration-100 opacity-0 text-center absolute inset-0 flex justify-center items-center z-10">Buy Notes</span>
+                                    </button></a>
+                                        
+                                        <button class="transition flex items-center duration-300 show-hidden-menu underline">More Modules</button>
+                                    </div>
+                                    <div class="w-[90%] h-[80%] text-black rounded-2xl p-4 flex justify-center flex-wrap absolute z-10 overflow-hidden after:duration-500 before:duration-500 duration-500 hover:after:duration-500 hover:after:translate-x-16 hover:before:translate-y-8 hover:before:-translate-x-36 hover:duration-500 after:absolute after:w-14 after:h-14 after:bg-green-700 after:rounded-full after:blur-xl after:bottom-16 after:right-16 before:absolute before:bg-sky-400 before:rounded-full before:blur-xl before:top-10 before:right-16 before:w-14 before:h-14 items-center bg-[#fdfaed] shadow-md hidden-menu">
+                                        <button class="absolute top-2 right-3 close-hidden-menu">
+                                            <i class="fa-solid fa-xmark text-gray-600 text-lg"></i>
+                                        </button>
+                                        <a href=https://rzp.io/rzp/Y0n3XhY class="w-fit p-2"><p>Module 1</p></a>
+                                        <a href=https://rzp.io/rzp/dbCLcZZz class="w-fit p-2"><p>Module 2</p></a>
+                                        <a href=https://rzp.io/rzp/uyZJ1GX class="w-fit p-2"><p>Module 3</p></a>
+                                        <a href=https://rzp.io/rzp/E4jt0Pdd class="w-fit p-2"><p>Module 4</p></a>
+                                        <a href=https://rzp.io/rzp/HZSrdLk class="w-fit p-2"><p>Module 5</p></a>
+                                        <a href=https://rzp.io/rzp/O8RYj5Mb class="w-fit p-2"><p>Module 6</p></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="overflow-hidden xl:w-[22vw] lg:w-[24vw] md:w-[34vw] group card-containers rounded-2xl shadow-md">
+                        <div class="rounded-2xl h-full gradient-hover-outer">
+                            <div class="rounded-2xl h-full gradient-hover-inner flex flex-col">
+                                <div class="w-full">
+                                    <img src="./assets/asset 57.svg" alt="" class="rounded-t-2xl">
+                                </div>
+                                <div class="flex relative h-full w-full flex-col justify-evenly items-center gap-6 p-6">
+                                    <div class="flex items-center w-full justify-self-auto gap-4">
+                                        <div class="w-12 h-12 bg-blue-200 flex-shrink-0 flex items-center justify-center rounded-full">
+                                            <i class="fa-solid fa-code text-indigo-800"></i>
+                                        </div>
+                                        <h3 class="text-2xl font-semibold">basic Electrical Engineering</h3>
+                                    </div>
+                                    <div class="flex w-full justify-evenly gap-4">
+                                      <a href=# ><button class="overflow-hidden w-32 p-2 py-3 h-12 bg-black text-white border-none rounded-md font-bold cursor-pointer relative text-xl z-10 group flex items-center justify-center">
+                                        Buy Notes
+                                        <span class="absolute w-36 h-32 -top-8 -left-2 bg-white rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-left"></span>
+                                        <span class="absolute w-36 h-32 -top-8 -left-2 bg-[#4fa594] rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-left"></span>
+                                        <span class="absolute w-36 h-32 -top-8 -left-2 bg-[#227968] rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-1000 duration-500 origin-left"></span>
+                                        <span class="group-hover:opacity-100 group-hover:duration-1000 duration-100 opacity-0 text-center absolute inset-0 flex justify-center items-center z-10">Buy Notes</span>
+                                    </button></a>
+                                        
+                                        <button class="transition flex items-center duration-300 show-hidden-menu underline">More Modules</button>
+                                    </div>
+                                    <div class="w-[90%] h-[80%] text-black rounded-2xl p-4 flex justify-center flex-wrap absolute z-10 overflow-hidden after:duration-500 before:duration-500 duration-500 hover:after:duration-500 hover:after:translate-x-16 hover:before:translate-y-8 hover:before:-translate-x-36 hover:duration-500 after:absolute after:w-14 after:h-14 after:bg-green-700 after:rounded-full after:blur-xl after:bottom-16 after:right-16 before:absolute before:bg-sky-400 before:rounded-full before:blur-xl before:top-10 before:right-16 before:w-14 before:h-14 items-center bg-[#fdfaed] shadow-md hidden-menu">
+                                        <button class="absolute top-2 right-3 close-hidden-menu">
+                                            <i class="fa-solid fa-xmark text-gray-600 text-lg"></i>
+                                        </button>
+                                        <a href=https://rzp.io/rzp/AWzGf7y class="w-fit p-2"><p>Module 1</p></a>
+                                        <a href=https://rzp.io/rzp/InKiAF7X class="w-fit p-2"><p>Module 2</p></a>
+                                        <a href=https://rzp.io/rzp/nFXmk5GA class="w-fit p-2"><p>Module 3</p></a>
+                                        <a href=https://rzp.io/rzp/QXZ7En8 class="w-fit p-2"><p>Module 4</p></a>
+                                        <a href=https://rzp.io/rzp/q0nizRUC class="w-fit p-2"><p>Module 5</p></a>
+                                        <a href=https://rzp.io/rzp/AqjYgX8T class="w-fit p-2"><p>Module 6</p></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="overflow-hidden xl:w-[22vw] lg:w-[24vw] md:w-[34vw] group card-containers rounded-2xl shadow-md">
+                        <div class="rounded-2xl h-full gradient-hover-outer">
+                            <div class="rounded-2xl h-full gradient-hover-inner flex flex-col">
+                                <div class="w-full">
+                                    <img src="./assets/asset 57.svg" alt="" class="rounded-t-2xl">
+                                </div>
+                                <div class="flex relative h-full w-full flex-col justify-evenly items-center gap-6 p-6">
+                                    <div class="flex items-center w-full justify-self-auto gap-4">
+                                        <div class="w-12 h-12 bg-blue-200 flex-shrink-0 flex items-center justify-center rounded-full">
+                                            <i class="fa-solid fa-code text-indigo-800"></i>
+                                        </div>
+                                        <h3 class="text-2xl font-semibold">Engineering Drawing</h3>
+                                    </div>
+                                    <div class="flex w-full justify-evenly gap-4">
+                                        <a href=# ><button class="overflow-hidden w-32 p-2 py-3 h-12 bg-black text-white border-none rounded-md font-bold cursor-pointer relative text-xl z-10 group flex items-center justify-center">
+                                            Buy Notes
+                                            <span class="absolute w-36 h-32 -top-8 -left-2 bg-white rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-left"></span>
+                                            <span class="absolute w-36 h-32 -top-8 -left-2 bg-[#4fa594] rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-left"></span>
+                                            <span class="absolute w-36 h-32 -top-8 -left-2 bg-[#227968] rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-1000 duration-500 origin-left"></span>
+                                            <span class="group-hover:opacity-100 group-hover:duration-1000 duration-100 opacity-0 text-center absolute inset-0 flex justify-center items-center z-10">Buy Notes</span>
+                                        </button></a>
+                                        
+                                        <button class="transition flex items-center duration-300 show-hidden-menu underline">More Modules</button>
+                                    </div>
+                                    <div class="w-[90%] h-[80%] text-black rounded-2xl p-4 flex justify-center flex-wrap absolute z-10 overflow-hidden after:duration-500 before:duration-500 duration-500 hover:after:duration-500 hover:after:translate-x-16 hover:before:translate-y-8 hover:before:-translate-x-36 hover:duration-500 after:absolute after:w-14 after:h-14 after:bg-green-700 after:rounded-full after:blur-xl after:bottom-16 after:right-16 before:absolute before:bg-sky-400 before:rounded-full before:blur-xl before:top-10 before:right-16 before:w-14 before:h-14 items-center bg-[#fdfaed] shadow-md hidden-menu">
+                                        <button class="absolute top-2 right-3 close-hidden-menu">
+                                            <i class="fa-solid fa-xmark text-gray-600 text-lg"></i>
+                                        </button>
+                                        <a href=https://rzp.io/rzp/xQpaGLd6 class="w-fit p-2"><p>FULL MODULES</p></a>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+
+                    
+
+                </div>
+            </div>
+        </section>
+        
+        <!-- PreviousPapers -->
+        <section id="PreviousPapers">
+            <div class="p-1 pt-20 pb-10 sm:pt-24 sm:px-20 md:px-10">
+                <h1 class="main-title text-3xl md:text-5xl pl-5 md:pl-0 sm:font-semibold pb-10 w-full">Previous Year Papers</h1>
+                <div class="flex justify-end px-9">
+                    <div class="select-container relative">
+                        <select id="semesterSelect" class="custom-select bg-[#368071] text-white px-4 py-3 pr-8 rounded-md">
+                            <option value="sem1" class="bg-[#68bcac]">Semester 1</option>
+                            <option value="sem2" class="bg-[#68bcac]">Semester 2</option>
+                        </select>
+                        <!-- Inline SVG for the arrow -->
+                        <svg class="select-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="container mx-auto flex flex-wrap md:grid md:grid-cols-3 px-6 sm:px-0 md:grid-rows-2 pt-0 mt-8 gap-2 md:gap-4">
+                    <!-- Sem1 boxes -->
+                    <div class="grid-box flex flex-1 items-center justify-center bg-gradient-to-br from-green-200 to-[#a6aab1] border-2 hover:border-[#bbf7d0] hover:shadow:lg hover:scale-105 rounded-lg p-5 text-center transition-transform ease-in-out duration-300">
+                        <a href="https://drive.google.com/file/d/1zUiQ-dlo4IxGuqDQEUoqx5mulS1R1E1e/view?usp=sharing" class="no-underline text-gray-800 text-sm font-bold">Mathematic-1</a>
+                    </div>
+                    <div class="grid-box flex flex-1 items-center justify-center bg-gradient-to-br from-green-200 to-[#a6aab1] border-2 hover:border-[#bbf7d0] hover:shadow:lg hover:scale-105 rounded-lg p-5 text-center transition-transform ease-in-out duration-300">
+                        <a href="https://drive.google.com/file/d/1zlSo3H8v0Km15SmQ6dZ0SX_OXb5fMbLZ/view?usp=drive_link" class="no-underline text-gray-800 text-sm font-bold">Chemistry</a>
+                    </div>
+                    <div class="grid-box flex flex-1 items-center justify-center bg-gradient-to-br from-green-200 to-[#a6aab1] border-2 hover:border-[#bbf7d0] hover:shadow:lg hover:scale-105 rounded-lg p-5 text-center transition-transform ease-in-out duration-300">
+                        <a href="https://drive.google.com/file/d/1zub4Az1Egn6vxmP9zdf8zzJY6-v-HOZt/view?usp=sharing" class="no-underline text-gray-800 text-sm font-bold">Engineering Mechanics</a>
+                    </div>
+                    <div class="grid-box flex flex-1 items-center justify-center bg-gradient-to-br from-green-200 to-[#a6aab1] border-2 hover:border-[#bbf7d0] hover:shadow:lg hover:scale-105 rounded-lg p-5 text-center transition-transform ease-in-out duration-300">
+                        <a href="https://drive.google.com/file/d/1zmZFRrQJHDp95BTFEV3LpVPGy3LOWmFi/view?usp=drive_link" class="no-underline text-gray-800 text-sm font-bold">Programming For Problem Solving</a>
+                    </div>
+                    <div class="grid-box flex flex-1 items-center justify-center bg-gradient-to-br from-green-200 to-[#a6aab1] border-2 hover:border-[#bbf7d0] hover:shadow:lg hover:scale-105 rounded-lg p-5 text-center transition-transform ease-in-out duration-300">
+                        <a href="https://drive.google.com/file/d/1zf6YZpYZCwLCwqWGACRRdgKJX3S4CMd8/view?usp=sharing" class="no-underline text-gray-800 text-sm font-bold">Indian knowledge System</a>
+                    </div>
+                    <div class="grid-box flex flex-1 items-center justify-center bg-gradient-to-br from-green-200 to-[#a6aab1] border-2 hover:border-[#bbf7d0] hover:shadow:lg hover:scale-105 rounded-lg p-5 text-center transition-transform ease-in-out duration-300">
+                        <a href=https://rzp.io/rzp/zWDW1yg class="no-underline text-gray-800 text-sm font-bold">Maths-1  Formula</a>
+                    </div>
+                    
+                    <!-- Sem2 boxes, initially hidden -->
+                    <div class="grid-box sem2-box hidden flex flex-1 items-center justify-center bg-gradient-to-br from-green-200 to-[#a6aab1] border-2 hover:border-[#bbf7d0] hover:shadow:lg hover:scale-105 rounded-lg p-5 text-center transition-transform ease-in-out duration-300">
+                        <a href="https://drive.google.com/file/d/1z_-eAgnWwK5NWpqI7bnSWpkN6A8HhMRB/view?usp=sharing" class="no-underline text-gray-800 text-sm font-bold">Mathematic-2</a>
+                    </div>
+                    <div class="grid-box sem2-box hidden flex flex-1 items-center justify-center bg-gradient-to-br from-green-200 to-[#a6aab1] border-2 hover:border-[#bbf7d0] hover:shadow:lg hover:scale-105 rounded-lg p-5 text-center transition-transform ease-in-out duration-300">
+                        <a href="https://drive.google.com/file/d/1zVAeW2-AfBM4HRnoOAiI8EmsCPkeNYMd/view?usp=drive_link" class="no-underline text-gray-800 text-sm font-bold">Physics</a>
+                    </div>
+                    <div class="grid-box sem2-box hidden flex flex-1 items-center justify-center bg-gradient-to-br from-green-200 to-[#a6aab1] border-2 hover:border-[#bbf7d0] hover:shadow:lg hover:scale-105 rounded-lg p-5 text-center transition-transform ease-in-out duration-300">
+                        <a href="https://drive.google.com/file/d/1ziCn7Xd_DCnGnsCZzktTCHeR3FtXktbr/view?usp=drive_link" class="no-underline text-gray-800 text-sm font-bold">Basic Electrical Engineering</a>
+                    </div>
+                    <div class="grid-box sem2-box hidden flex flex-1 items-center justify-center bg-gradient-to-br from-green-200 to-[#a6aab1] border-2 hover:border-[#bbf7d0] hover:shadow:lg hover:scale-105 rounded-lg p-5 text-center transition-transform ease-in-out duration-300">
+                        <a href="https://drive.google.com/file/d/1zeBEiCmRRlZU8aaOu5pR6xIaOr19xzvp/view?usp=sharing" class="no-underline text-gray-800 text-sm font-bold">Engineering Graphic Drawing</a>
+                    </div>
+                    <div class="grid-box sem2-box hidden flex flex-1 items-center justify-center bg-gradient-to-br from-green-200 to-[#a6aab1] border-2 hover:border-[#bbf7d0] hover:shadow:lg hover:scale-105 rounded-lg p-5 text-center transition-transform ease-in-out duration-300">
+                        <a href="https://drive.google.com/file/d/1z_lB-TgPr2XrHN8Ok-sdkpH8Uabq-Rz8/view?usp=sharing" class="no-underline text-gray-800 text-sm font-bold">EGPC</a>
+                    </div>
+                    <div class="grid-box sem2-box hidden flex flex-1 items-center justify-center bg-gradient-to-br from-green-200 to-[#a6aab1] border-2 hover:border-[#bbf7d0] hover:shadow:lg hover:scale-105 rounded-lg p-5 text-center transition-transform ease-in-out duration-300">
+                        <a href=https://rzp.io/rzp/nzOVoOdz class="no-underline text-gray-800 text-sm font-bold">Maths-2  Formula</a>
+                    </div>
+                    
+                   
+                </div>
+            </div>
+        </section>
+        
+        <!-- Videos -->
+        <section id="videos">
+            <div class="bg-gray-100 py-24 sm:px-20 md:px-10 rounded-lg">
+                <h1 class="main-title text-4xl md:text-5xl pl-5 md:pl-0 sm:font-semibold">Videos</h1>
+                <div class="grid grid-cols-1 mt-20 px-8 md:px-10 md:grid-cols-3 gap-4">
+                    <div class="relative w-full overflow-hidden rounded-lg border-2 border-[#68bcac]" style="padding-bottom: 56.25%;">
+                        <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/MDGconlT6A8?si=jyrx5Zzja7pQduxo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="relative w-full overflow-hidden rounded-lg border border-[#68bcac]" style="padding-bottom: 56.25%;">
+                        <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/NxPN5KMXT48?si=fEIehovnnb-4gsAY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="relative w-full overflow-hidden rounded-lg border border-[#68bcac]" style="padding-bottom: 56.25%;">
+                        <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/uojN7SOHPBw?si=mFRZ9mfUZsgjJWr8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--Buy Materials -->
+        <section id="materials">
+            <div class="notes_container py-20 sm:py-24 sm:px-20 md:px-10">
+                <h2 class="main-title text-4xl md:text-5xl pl-5 md:pl-0 sm:font-semibold">Buy Materials</h2>
+                <div class="flex flex-col md:flex-row justify-center flex-wrap w-full px-8 md:px-0 gap-6 mt-20">
+                    <div class="overflow-hidden group flex flex-col justify-start items-center w-full md:w-[30%] rounded-2xl shadow-md">
+                        <div class="gradient-hover-outer flex flex-col justify-center items-center w-full h-full">
+                            <div class="gradient-hover-inner flex flex-col items-center w-full h-full rounded-2xl">
+                                <!-- Swiper section with fixed height -->
+                                <div class="swiper mySwiper rounded-t-2xl w-full h-60 md:h-45 lg:h-60 xl:h-90 xl:h-90">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide"><img src="assets/mar.jpg" alt="materials 1"></div>
+                                        <div class="swiper-slide"><img src="assets/container.jpg" alt="materials 2"></div>
+                                        <div class="swiper-slide"><img src="assets/scale.jpg" alt="materials 3"></div>
+                                        <div class="swiper-slide"><img src="assets/box.jpg" alt="materials 4"></div>
+                                        <div class="swiper-slide"><img src="assets/clip.jpg" alt="materials 4"></div>
+                                    </div>
+                                    <div class="swiper-button-next"></div>
+                                    <div class="swiper-button-prev"></div>
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                                <!-- Content section -->
+                                <div class="flex flex-col items-center p-6 w-full h-auto">
+                                    <h3 class="text-2xl font-semibold text-center">Name : Abhishekh vishwakarma</h3>
+                                    <h3 class="text-2xl font-semibold text-center">Contact : 8898544175</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="overflow-hidden group flex flex-col justify-start items-center w-full md:w-[30%] rounded-2xl shadow-md">
+                        <div class="gradient-hover-outer flex flex-col justify-center items-center w-full h-full">
+                            <div class="gradient-hover-inner flex flex-col items-center w-full h-full rounded-2xl">
+                                <!-- Swiper section with fixed height -->
+                                <div class="swiper mySwiper rounded-t-2xl w-full h-60 md:h-45 lg:h-60 xl:h-90 xl:h-90">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide"><img src="assets/mar.jpg" alt="materials 1"></div>
+                                        <div class="swiper-slide"><img src="assets/box.jpg" alt="materials 2"></div>
+                                        <div class="swiper-slide"><img src="assets/scale.jpg" alt="materials 3"></div>
+                                        <div class="swiper-slide"><img src="assets/container.jpg" alt="materials 4"></div>
+                                        \  <div class="swiper-slide"><img src="assets/clip.jpg" alt="materials 4"></div>
+                                    </div>
+                                    <div class="swiper-button-next"></div>
+                                    <div class="swiper-button-prev"></div>
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                                <!-- Content section -->
+                                <div class="flex flex-col items-center p-6 w-full h-auto">
+                                    <h3 class="text-2xl font-semibold text-center">Name : Sumeet Yadav</h3>
+                                    <h3 class="text-2xl font-semibold text-center">Contact : 9324368298</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="overflow-hidden group flex flex-col justify-start items-center w-full md:w-[30%] rounded-2xl shadow-md">
+                        <div class="gradient-hover-outer flex flex-col justify-center items-center w-full h-full">
+                            <div class="gradient-hover-inner flex flex-col items-center w-full h-full rounded-2xl">
+                                <!-- Swiper section with fixed height -->
+                                <div class="swiper mySwiper rounded-t-2xl w-full h-60 md:h-45 lg:h-60 xl:h-90 xl:h-90">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide"><img src="assets/mar.jpg" alt="materials 1"></div>
+                                        <div class="swiper-slide"><img src="assets/clip.jpg" alt="materials 2"></div>
+                                        <div class="swiper-slide"><img src="assets/box.jpg" alt="materials 3"></div>
+                                        <div class="swiper-slide"><img src="assets/container.jpg" alt="materials 4"></div>
+                                        <div class="swiper-slide"><img src="assets/scale.jpg" alt="materials 4"></div>
+                                    </div>
+                                    <div class="swiper-button-next"></div>
+                                    <div class="swiper-button-prev"></div>
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                                <!-- Content section -->
+                                <div class="flex flex-col items-center p-6 w-full h-auto">
+                                    <h3 class="text-2xl font-semibold text-center">Name : Yash srivastav</h3>
+                                    <h3 class="text-2xl font-semibold text-center">Contact : 8850071255</h3>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer-container">
+        <div class="rounded-lg border lg:border-none lg:bg-gray-50 bg-gray-50 flex flex-col lg:flex-row-reverse items-center lg:justify-center px-8 py-12 gap-8 overflow-hidden">
+            
+            <div class="card bg-white border-2 border-gray-800 shadow-[4px_4px_#323232] rounded-lg flex flex-col items-center justify-center w-48 h-64">
+
+                <div class="card-photo relative w-[100px] h-[100px]
+                rounded-[10%] bg-yellow-400
+                transform scale-25 bg-[url('./assets/abhi_image.png')] bg-cover bg-center
+                bg-no-repeat hover:scale-110 hover:translate-x-0 hover:translate-y-0 transition-transform duration-250"></div>
+
+                <div class="card-title text-center text-gray-800 text-lg font-normal font-sans mt-5">Abhishekh Vishwakarma<br>
+            
+                </div>
+                <div class="card-socials flex items-center h-0 opacity-0 mt-3 gap-3 transition-all duration-500">
+                    <a href="mailto:rekandlal11@gmail.com" target="_blank">
+                        <button class="card-socials-btn flex items-center w-[32px] h-[30px] bg-transparent border-none cursor-pointer hover:translate-y-[-5px] transition-all duration-150">
+                        <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 47.5 47.5" viewBox="0 0 47.5 47.5" id="Email" class="w-full h-full"><defs><clipPath id="a"><path d="M0 38h38V0H0v38Z" fill="#000000" class="color000000 svgShape"></path></clipPath></defs><g clip-path="url(#a)" transform="matrix(1.25 0 0 -1.25 0 47.5)" fill="#000000" class="color000000 svgShape"><path fill="#ccddda" d="M0 0a4 4 0 0 0-4-4h-28a4 4 0 0 0-4 4v18a4 4 0 0 0 4 4h28a4 4 0 0 0 4-4V0Z" transform="translate(37 10)" class="colorccd6dd svgShape"></path><path fill="#368071" d="m0 0-11.313-11.313c-.027-.028-.037-.063-.06-.091a3.987 3.987 0 0 1 1.384-1.384c.029.023.063.033.09.059L1.415-1.414A1 1 0 0 1 0 0" transform="translate(12.95 19.364)" class="color99aab5 svgShape"></path><path fill="#368071" d="M0 0c-.021.028-.033.063-.06.09l-11.312 11.314a1 1 0 1 1-1.415-1.414L-1.474-1.324c.027-.027.062-.037.09-.06A3.97 3.97 0 0 1 0 0" transform="translate(36.423 7.96)" class="color99aab5 svgShape"></path><path fill="#368071" d="M0 0h-28a4 4 0 0 1-4-4v-1.03l14.528-14.495a4.88 4.88 0 0 1 6.884 0L4-5.009V-4a4 4 0 0 1-4 4" transform="translate(33 32)" class="color99aab5 svgShape"></path><path fill="#e1edeb" d="M0 0h-28a3.992 3.992 0 0 1-3.595-2.275l14.766-14.767a4 4 0 0 1 5.657 0L3.595-2.275A3.991 3.991 0 0 1 0 0" transform="translate(33 32)" class="colore1e8ed svgShape"></path></g></svg>
+                        </button>
+                    </a>
+                    <a href="https://github.com/rekandlal" target="_blank">
+                        <button class="card-socials-btn flex items-center w-8 h-8 bg-transparent border-none cursor-pointer hover:translate-y-[-5px] transition-all duration-150">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792" id="Github"><path d="M522 1352q-8 9-20-3-13-11-4-19 8-9 20 3 12 11 4 19zm-42-61q9 12 0 19-8 6-17-7t0-18q9-7 17 6zm-61-60q-5 7-13 2-10-5-7-12 3-5 13-2 10 5 7 12zm31 34q-6 7-16-3-9-11-2-16 6-6 16 3 9 11 2 16zm129 112q-4 12-19 6-17-4-13-15t19-7q16 5 13 16zm63 5q0 11-16 11-17 2-17-11 0-11 16-11 17-2 17 11zm58-10q2 10-14 14t-18-8 14-15q16-2 18 9zm964-956v960q0 119-84.5 203.5T1376 1664h-224q-16 0-24.5-1t-19.5-5-16-14.5-5-27.5v-239q0-97-52-142 57-6 102.5-18t94-39 81-66.5 53-105T1386 856q0-121-79-206 37-91-8-204-28-9-81 11t-92 44l-38 24q-93-26-192-26t-192 26q-16-11-42.5-27T578 459.5 492 446q-44 113-7 204-79 85-79 206 0 85 20.5 150t52.5 105 80.5 67 94 39 102.5 18q-40 36-49 103-21 10-45 15t-57 5-65.5-21.5T484 1274q-19-32-48.5-52t-49.5-24l-20-3q-21 0-29 4.5t-5 11.5 9 14 13 12l7 5q22 10 43.5 38t31.5 51l10 23q13 38 44 61.5t67 30 69.5 7 55.5-3.5l23-4q0 38 .5 103t.5 68q0 22-11 33.5t-22 13-33 1.5H416q-119 0-203.5-84.5T128 1376V416q0-119 84.5-203.5T416 128h960q119 0 203.5 84.5T1664 416z" fill="#368071" class="color000000 svgShape"></path></svg>
+                        </button>
+                    </a>
+                    <a href="https://www.linkedin.com/in/abhishekh-vishwakarma-13aa1b297" target="_blank">
+                        <button class="card-socials-btn flex items-center w-[27px] h-[27px] bg-transparent border-none cursor-pointer hover:translate-y-[-5px] transition-all duration-150">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" id="Linkedin"><g fill="none" fill-rule="evenodd"><g fill="#000000" class="color000000 svgShape"><rect width="72" height="72" fill="#368071" rx="4" class="color117eb8 svgShape"></rect><path fill="#ffffff" d="M13.139 27.848h9.623V58.81h-9.623V27.848zm4.813-15.391c3.077 0 5.577 2.5 5.577 5.577 0 3.08-2.5 5.581-5.577 5.581a5.58 5.58 0 1 1 0-11.158zm10.846 15.39h9.23v4.231h.128c1.285-2.434 4.424-5 9.105-5 9.744 0 11.544 6.413 11.544 14.75V58.81h-9.617V43.753c0-3.59-.066-8.209-5-8.209-5.007 0-5.776 3.911-5.776 7.95V58.81h-9.615V27.848z" class="colorffffff svgShape"></path></g></g></svg>
+                        </button>
+                    </a>
+                </div>
+            </div>
+            
+            <a href="#" id="brand" class="flex flex-col gap-4 items-center">
+                <div class="flex gap-2 items-center">
+                    <img class="object-cover max-w-12 max-h-12" src="./assets/logo.png" alt="Logo">
+                    <span class="font-bold text-primary font-display text-3xl">A<span class="text-logoColor text-2xl font-bold">cademix</span></span>
+                </div>
+                <div>
+                    <p class="text-sm text-gray-400">© 2024 Academix, Inc. All rights reserved.</p>
+                </div>
+            </a>
+           <!-- counter start -->
+           <div class="text-center flex flex-col gap-2 items-center justify-center bg-white p-5 rounded-lg shadow-lg">
+                <h1 class="text-2xl mb-5 text-gray-800"><b>Total Visiter Count</b></h1>
+                <!-- Naya FreeCounterStat ka code yahaan paste kiya gaya hai -->
+                <div id="sfca5p24wk3ckgy6u1t1n7huuc71k2478kt" class="text-xl mt-2"></div>
+                <script type="text/javascript" src="https://counter6.optistats.ovh/private/counter.js?c=a5p24wk3ckgy6u1t1n7huuc71k2478kt&down=async" async></script>
+                <noscript>
+                    <a href="https://www.freecounterstat.com" title="free page counter">
+                        <img src="https://counter6.optistats.ovh/private/freecounterstat.php?c=a5p24wk3ckgy6u1t1n7huuc71k2478kt" border="0" title="free page counter" alt="free page counter">
+                    </a>
+                </noscript>
+            </div>
+        
+        <!-- counter end -->
+
+        </div>
+    </footer>
+
+</body>
+<script src="script.js"></script>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Initialize Swiper -->
+<script>
+    var swiper = new Swiper(".mySwiper", {
+    pagination: {
+        el: ".swiper-pagination",
+        type: "progressbar",
+        backgroung: "#368071"
+    },
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    });
+
+    // Scroll Reveal
+
+    ScrollReveal({ 
+        reset: true,
+        distance: '60px',
+        duration: 2500,
+        delay: 400
+    });
+
+    ScrollReveal().reveal('.main-title', {delay: 300, origin:'left'});
+    ScrollReveal().reveal('.hero-title', {delay: 400, origin:'bottom'});
+</script>
+</html>
+

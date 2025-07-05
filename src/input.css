@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html,
+    body {
+        overflow-x: hidden;
+        scroll-behavior: smooth
+    }
+    body {
+        @apply font-body;
+    }
+    h1, h2, h3 {
+        @apply font-display text-gray-800 font-medium;
+    }
+    .footer-container {
+        @apply px-6 py-12 max-w-7xl mt-16 mx-auto lg:px-8 lg:mt-10;
+    }
+    .anchor-hover {
+        @apply border-b border-dotted border-y-gray-300 hover:border-solid hover:border-gray-500;
+    }
+    .gradient-hover-outer {
+        @apply p-[1px] bg-slate-200 hover:bg-gradient-to-br hover:from-red-200 hover:via-purple-200 hover:to-yellow-200;
+    }
+    .gradient-hover-inner {
+        @apply bg-slate-50 group-hover:bg-gradient-to-br group-hover:from-red-50 group-hover:via-purple-50 group-hover:to-yellow-50;
+    }
+    .border-gradient {
+        border-image: linear-gradient(45deg, #e2eeff, #d2bbb6) 1;
+      }
+    .h2-style {
+        @apply text-5xl leading-normal sm:font-semibold max-w-2xl;
+    }
+    .card:hover .card-socials {
+        @apply h-9 opacity-100;
+    }
+    .rounded-top {
+        @apply rounded-t-lg;
+    }
+    
+    /* Test card reomve  */
+    .hidden-menu {
+        transform: translateY(13rem);
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .hidden-menu.show {
+        transform: translateY(0);
+    }
+
+    .card__article:hover .card__data {
+        animation: show-data 1s forwards;
+        opacity: 1;
+        transition: opacity .3s;
+    }
+    .card__article:hover {
+        animation: remove-overflow 2s forwards;
+    }
+    @keyframes show-data {
+        50% {
+        transform: translateY(-10rem);
+        }
+        100% {
+        transform: translateY(-7rem);
+        }
+    }
+    @keyframes remove-overflow {
+        to {
+        overflow: initial;
+        }
+    }
+    
+    
+/* Custom CSS for the arrow */
+.custom-select {
+    appearance: none; /* Remove the default arrow */
+    padding-right: 2.5rem; /* Add space for the arrow */
+    background-image: none; /* Ensure no conflicting background */
+}
+
+.select-container {
+    position: relative;
+}
+
+.select-arrow {
+    pointer-events: none; /* Ensure the arrow does not block clicks */
+    position: absolute;
+    top: 50%;
+    right: 0.5rem;
+    transform: translateY(-50%);
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: white;
+}
+
+    /* swiper */
+    .swiper {
+        width: 100%;
+        height: 100%;
+    }
+
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #d1b0b0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+.swiper-button-next, .swiper-button-prev {
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent; /* Ensure the original color is hidden */
+}
+    .swiper-pagination .swiper-pagination-progressbar-fill{
+        background: linear-gradient(to right, #ff7e5f, #feb47b) !important;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.swiper-slide img {
+    object-fit: cover;
+    background-image: center;
+    width: 100%;
+    height: 100%;
+}
+
+}
+
